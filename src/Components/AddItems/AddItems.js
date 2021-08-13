@@ -1,5 +1,5 @@
 import React from "react";
-import './AddItems.css';
+import './AddItems.scss';
 
 class AddItems extends React.Component {
   constructor(props) {
@@ -45,18 +45,18 @@ class AddItems extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="add-collection-item">
       <form>
         <div className="form-group-container">
           <label>Name</label>
-          <input type="text" class="form-control" value={this.state.name} onChange={this.nameChange.bind(this)}/>
+          <input type="text" className="form-control" value={this.state.name} onChange={this.nameChange.bind(this)}/>
         </div>
         <div class=" form-group-container">
           <label>About</label>
-          <textarea rows="3" class="form-control" value={this.state.aboutItem}
+          <textarea rows="3" className="form-control" value={this.state.aboutItem}
                     onChange={this.aboutItemChange.bind(this)}/>
         </div>
-        <button type="submit" class="btn btn-primary" onClick={this.add.bind(this)}>Save</button>
+        <button type="submit" className="btn btn-primary" onClick={this.add.bind(this)}>Save</button>
       </form>
     </div>
   }

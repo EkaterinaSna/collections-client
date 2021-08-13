@@ -62,7 +62,7 @@ class Registration extends React.Component {
         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
         <input type="password" value={this.state.password} onChange={this.passwordChange.bind(this)} className="form-control" id="exampleInputPassword1"/>
       </div>
-      <a><button type="submit" className="btn btn-primary" onClick={this.registration.bind(this)}>Sing up</button></a>
+      <button type="submit" className="btn btn-primary" onClick={this.registration.bind(this)}>Sing up</button>
     </div>
   };
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import './Collections.css';
+import './Collections.scss';
 
 class Collections extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Collections extends React.Component {
       .then(() => this.loadCollection())
   }
   render() {
-    return <div>
+    return <div className="collection-list">
       <h1>MY COLLECTIONS</h1>
         <div className="col">
           {this.state.collection.map(collection =>

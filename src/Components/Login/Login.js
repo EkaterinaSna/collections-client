@@ -30,8 +30,7 @@ class Login extends React.Component {
         document.location.reload();
       })
       .catch(() => {
-        this.state.hasError = true
-        this.setState(this.state)
+        this.setState({ ...this.state, hasError: true})
       });
 
   };

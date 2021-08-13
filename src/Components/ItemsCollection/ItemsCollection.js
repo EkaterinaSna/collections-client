@@ -1,5 +1,5 @@
 import React from "react";
-import './ItemsCollection.css';
+import './ItemsCollection.scss';
 
 class ItemsCollection extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class ItemsCollection extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="items-collection">
       <a href={"/#/" + this.state.collectionId + "/add"}><button type="button" className="btn btn-outline-dark">Add</button></a>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         <div className="col">
