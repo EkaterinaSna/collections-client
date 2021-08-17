@@ -35,7 +35,10 @@ class ItemsCollection extends React.Component {
             <div className="card-body">
               <h5 className="card-title">{itemsCollection.name}</h5>
               <p className="card-text">{itemsCollection.aboutItem}</p>
-              <button type="button" className="btn btn-outline-danger" onClick={() => this.delete(itemsCollection.id)}>Delete</button>
+              <div className="actions">
+                <button type="button" className="btn btn-outline-danger" onClick={() => this.delete(itemsCollection.id)}>Delete</button>
+                <a className="nav-link" href={"/#/" + this.state.collectionId + "/editItems"}>Edit</a>
+              </div>
             </div>
              </div>
           )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { HashRouter as Router } from 'react-router-dom'
 import Header from './Components/Header/Header';
 import { Switch, Route } from 'react-router-dom';
@@ -22,7 +22,7 @@ class App extends React.Component {
 
 
   render() {
-    return <div>
+    return <div className="content">
       <Header/>
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
@@ -32,6 +32,8 @@ class App extends React.Component {
           <Route exact path="/create" component={CreateCollection}/>
           <Route exact path="/:id/items" component={ItemsCollection}/>
           <Route exact path="/:id/add" component={AddItems}/>
+          <Route exact path="/:id/edit" component={CreateCollection}/>
+          <Route exact path="/:id/editItems" component={AddItems}/>
           <Route  component={NotFound} />
           <Route/>
         </Switch>

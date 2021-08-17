@@ -15,14 +15,16 @@ class Collections extends React.Component {
       .then(response => response.json())
       .then(collection => this.setState({ collection }))
   }
+
   delete(id) {
     fetch('http://localhost:8000/collections/delete/' + id, {
       method: 'DELETE',})
       .then(() => this.loadCollection())
   }
+
   render() {
     return <div className="collection-list">
-      <h1>MY COLLECTIONS</h1>
+      {/*<h1>MY COLLECTIONS</h1>*/}
         <div className="col">
           {this.state.collection.map(collection =>
           <div className="card">
@@ -32,12 +34,11 @@ class Collections extends React.Component {
                     <h5 className="card-title">{collection.name}</h5>
                     <p className="card-text">{collection.aboutCollection}</p>
                   </div>
-                <button type="button" className="btn btn-outline-danger" onClick={() => this.delete(collection.id)}>Delete</button>
-                <ul className="nav">
-                  <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href={"/#/" + collection.id + "/items"}>List Collection</a>
-                  </li>
-                </ul>
+                <div className="actions">
+                  <button type="button" className="btn btn-outline-danger" onClick={() => this.delete(collection.id)}>Delete</button>
+                  <a className="nav-link active" aria-current="page" href={"/#/" + collection.id + "/edit"}>Edit</a>
+                  <a className="nav-link active list-link" aria-current="page" href={"/#/" + collection.id + "/items"}>List Collection</a>
+                </div>
               </div>
           </div>
           )}
