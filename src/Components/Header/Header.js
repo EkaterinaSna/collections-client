@@ -29,7 +29,7 @@ class Header extends React.Component {
         <div className="container">
           <a className="navbar-brand" href="/">COLLECTION</a>
            <div className="dropdown">
-             <a href="/#/create"><button type="button" className="btn btn-outline-light me-2">Create collection</button></a>
+             <a href="/create"><button type="button" className="btn btn-outline-light me-2">Create collection</button></a>
              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                      data-bs-toggle="dropdown" aria-expanded="false">
                Theme
@@ -39,8 +39,8 @@ class Header extends React.Component {
                <li><button className="dropdown-item" type="button" onClick={this.onLight.bind(this)}>Light</button></li>
              </ul>
              <div className="text-end">
-               <a href="/#/login"><button type="button" className="btn btn-outline-light me-2">Login</button></a>
-               <a href="/#/registration"><button type="button" className="btn btn-warning">Sign up</button></a>
+               <a href="/login"><button type="button" className="btn btn-outline-light me-2">Login</button></a>
+               <a href="/registration"><button type="button" className="btn btn-warning">Sign up</button></a>
              </div>
            </div>
           </div>

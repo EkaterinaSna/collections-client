@@ -24,11 +24,9 @@ class Collections extends React.Component {
 
   render() {
     return <div className="collection-list">
-      {/*<h1>MY COLLECTIONS</h1>*/}
         <div className="col">
           {this.state.collection.map(collection =>
           <div className="card">
-            <img src="..." className="card-img-top" alt="..."/>
               <div className="card-body">
                   <div>
                     <h5 className="card-title">{collection.name}</h5>
@@ -36,8 +34,8 @@ class Collections extends React.Component {
                   </div>
                 <div className="actions">
                   <button type="button" className="btn btn-outline-danger" onClick={() => this.delete(collection.id)}>Delete</button>
-                  <a className="nav-link active" aria-current="page" href={"/#/" + collection.id + "/edit"}>Edit</a>
-                  <a className="nav-link active list-link" aria-current="page" href={"/#/" + collection.id + "/items"}>List Collection</a>
+                  <a className="nav-link active" aria-current="page" href={"/" + collection.id + "/edit"}>Edit</a>
+                  <a className="nav-link active list-link" aria-current="page" href={"/" + collection.id + "/items"}>List Collection</a>
                 </div>
               </div>
           </div>

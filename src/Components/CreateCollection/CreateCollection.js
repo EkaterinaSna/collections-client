@@ -37,7 +37,7 @@ class CreateCollection extends React.Component {
     })
       .then(response => errorHandler(response))
       .then(() => {
-        this.props.history.push(process.env.PUBLIC_URL + "/#")
+        this.props.history.push("/")
       });
   }
 
@@ -60,8 +60,7 @@ class CreateCollection extends React.Component {
       }),
     })
       .then(() => {
-        window.open(process.env.PUBLIC_URL + "/#", '_self')
-        document.location.reload();
+        this.props.history.push(`/`)
       });
   };
 
@@ -81,18 +80,16 @@ class CreateCollection extends React.Component {
 
   render() {
     return <div className="create-collection">
-      <form>
-        <div className="form-group-container">
-          <label>Name collection</label>
-          <input type="text" className="form-control" value={this.state.name} onChange={this.nameChange.bind(this)}/>
-        </div>
-        <div className=" form-group-container">
-          <label>About collection</label>
-          <textarea rows="5" className="form-control" value={this.state.aboutCollection}
-                    onChange={this.aboutCollectionChange.bind(this)}/>
-        </div>
-        <button type="submit" className="btn btn-primary" onClick={this.onSave.bind(this)}>Save</button>
-      </form>
+      <div className="form-group-container">
+        <label>Name collection</label>
+        <input type="text" className="form-control" value={this.state.name} onChange={this.nameChange.bind(this)}/>
+      </div>
+      <div className=" form-group-container">
+        <label>About collection</label>
+        <textarea rows="5" className="form-control" value={this.state.aboutCollection}
+                  onChange={this.aboutCollectionChange.bind(this)}/>
+      </div>
+      <button type="submit" className="btn btn-primary" onClick={this.onSave.bind(this)}>Save</button>
     </div>
   }
 }

@@ -6,46 +6,49 @@ class AddItems extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      collectionId: props.match.params.collectionId,
+      id: props.match.params.id,
       name: '',
-      aboutItem: '',
-      collectionId: props.match.params.id
+      aboutItem: ''
     }
-
-  if (this.state.collectionId) {
-      this.loadItems()
   }
-}
 
-onSave() {
-  if (this.state.collectionId) {
-    this.editItems();
-  } else {
-    this.add();
+  componentWillMount() {
+    if (this.state.id) {
+      this.loadItem()
+    }
   }
-};
 
- loadItems() {
-  fetch('http://localhost:8000/collections/items/' + this.state.collectionId)
-    .then(response => response.json())
-    .then(item => this.setState({...this.state, ...item}))
-};
+  onSave() {
+    if (this.state.id) {
+      this.editItems();
+    } else {
+      this.add();
+    }
+  };
 
- editItems() {
-  fetch(`http://localhost:8000/collections/items/editItems/` + this.state.collectionId, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: this.state.name,
-      aboutItem: this.state.aboutItem
-    }),
-  })
-    .then(response => errorHandler(response))
-    .then(() => {
-      this.props.history.push(process.env.PUBLIC_URL + "/#/items")
-    });
-};
+  loadItem() {
+    fetch('http://localhost:8000/collections/items/' + this.state.id)
+      .then(response => response.json())
+      .then(item => this.setState({ ...this.state, ...item}))
+  };
+
+  editItems() {
+    fetch(`http://localhost:8000/collections/items/editItems/` + this.state.id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        aboutItem: this.state.aboutItem
+      }),
+    })
+      .then(response => errorHandler(response))
+      .then(() => {
+        this.props.history.push(`/${this.state.collectionId}/items`)
+      });
+  };
 
   add() {
     fetch(`http://localhost:8000/collections/items/add`, {
@@ -54,14 +57,13 @@ onSave() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        collectionId: this.state.collectionId,
         name: this.state.name,
-        aboutItem: this.state.aboutItem,
-        collectionId: this.state.collectionId
+        aboutItem: this.state.aboutItem
       }),
     })
       .then(() => {
-        window.open(process.env.PUBLIC_URL + "/#/items", '_self')
-        // document.location.reload();
+        this.props.history.push(`/${this.state.collectionId}/items`)
       });
   };
 
@@ -82,7 +84,6 @@ onSave() {
 
   render() {
     return <div className="add-collection-item">
-      <form>
         <div className="form-group-container">
           <label>Name</label>
           <input type="text" className="form-control" value={this.state.name} onChange={this.nameChange.bind(this)}/>
@@ -93,7 +94,6 @@ onSave() {
                     onChange={this.aboutItemChange.bind(this)}/>
         </div>
         <button type="submit" className="btn btn-primary" onClick={this.onSave.bind(this)}>Save</button>
-      </form>
     </div>
   }
 }

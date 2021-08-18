@@ -20,8 +20,7 @@ class Registration extends React.Component {
       body: JSON.stringify({firstname: this.state.firstname, email: this.state.email, password: this.state.password}),
     })
       .then(() => {
-        window.open(process.env.PUBLIC_URL + "/#/login", '_self')
-        document.location.reload();
+        this.props.history.push(`/login`)
       });
 
   };

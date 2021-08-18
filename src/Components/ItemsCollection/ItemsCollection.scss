@@ -1,31 +1,26 @@
 .items-collection {
-    .btn-outline-dark {
-        margin-top: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
-    }
-    .card {
-        margin-bottom: 20px;
-    }
-    //.btn-outline-danger {
-    //    margin-top: 20px;
-    //    float: right;
-    //}
-    .col {
-        margin-top: 5%;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    .actions {
-        display: flex;
-        margin: 5px 15px 5px;
-        flex-direction: row-reverse;
-        padding-bottom: 10px;
-        color: #615b5b;
+  padding: 0 15%;
 
-    }
-    .nav-link {
-        color: #615b5b;
-    }
+  .btn-outline-dark {
+    margin-top: 30px;
+    margin-right: 20px;
+  }
+
+  .row {
+    margin-top: 10px;
+  }
+
+  .actions {
+    display: flex;
+    margin: 5px 15px 5px;
+    flex-direction: row-reverse;
+    padding-bottom: 10px;
+    color: #615b5b;
+
+  }
+
+  .nav-link {
+    color: #615b5b;
+  }
 }
 

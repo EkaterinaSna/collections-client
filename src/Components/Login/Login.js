@@ -26,8 +26,7 @@ class Login extends React.Component {
       .then(response => response.json())
       .then((response) => {
         localStorage.setItem("user", JSON.stringify (response))
-        window.open(process.env.PUBLIC_URL + "/#", '_self')
-        document.location.reload();
+        this.props.history.push(`/`)
       })
       .catch(() => {
         this.setState({ ...this.state, hasError: true})
