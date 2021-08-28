@@ -1,32 +1,58 @@
 .collection-list {
+  .col {
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 
-    .col {
-        margin-top: 5%;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+  }
 
-    .card {
-        margin-bottom: 20px;
-    }
+  .nav-link {
+    color: #2b2b2b;
+    padding: 1rem 0;
+  }
 
-    .nav-link {
-        color: #2b2b2b;
+  .list-link {
+    color: rgba(50, 151, 205, 0.71);
+  }
 
+  .actions {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 10px;
+    color: #615b5b;
+  }
 
-    }
-    .actions {
-        display: flex;
-        margin: 5px 0 5px;
-        flex-direction: row-reverse;
-        padding-bottom: 10px;
-        color: #615b5b;
+  .list-link {
+    flex: auto;
+    padding-left: 0;
+  }
 
-    }
-    .list-link {
-        flex: auto;
-        padding-left: 0;
-    }
+  .btn-outline-danger {
+    margin: .4rem 1rem;
+  }
 
+  .text {
+    font-weight: lighter;
+    font-size: smaller;
+  }
+
+  .card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-text {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
+
 

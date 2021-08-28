@@ -8,7 +8,8 @@ class CreateCollection extends React.Component {
     this.state = {
       id: props.match.params.id,
       name: '',
-      aboutCollection: ''
+      aboutCollection: '',
+      fileInput: React.createRef(),
     }
 
     if (this.state.id) {
@@ -32,7 +33,8 @@ class CreateCollection extends React.Component {
       },
       body: JSON.stringify({
         name: this.state.name,
-        aboutCollection: this.state.aboutCollection
+        aboutCollection: this.state.aboutCollection,
+        img: this.state.img,
       }),
     })
       .then(response => errorHandler(response))
@@ -56,11 +58,12 @@ class CreateCollection extends React.Component {
       body: JSON.stringify({
         name: this.state.name,
         aboutCollection: this.state.aboutCollection,
-        userId: JSON.parse(localStorage.getItem('user')).id
+        userId: JSON.parse(localStorage.getItem('user')).id,
+        img: this.state.img,
       }),
     })
       .then(() => {
-        this.props.history.push(`/`)
+        this.props.history.push('/')
       });
   };
 
@@ -78,6 +81,16 @@ class CreateCollection extends React.Component {
     });
   }
 
+  imageChange() {
+    let reader = new FileReader();
+    reader.readAsDataURL(this.state.fileInput.current.files[0]);
+    reader.onload = () => {
+      this.setState({
+        img: reader.result
+      });
+    }
+  };
+
   render() {
     return <div className="create-collection">
       <div className="form-group-container">
@@ -89,7 +102,12 @@ class CreateCollection extends React.Component {
         <textarea rows="5" className="form-control" value={this.state.aboutCollection}
                   onChange={this.aboutCollectionChange.bind(this)}/>
       </div>
-      <button type="submit" className="btn btn-primary" onClick={this.onSave.bind(this)}>Save</button>
+      <div className="mb-3">
+        <label htmlFor="exampleInputDescription">Description</label>
+        <input ref={this.state.fileInput} type="file" className="form-control"
+               name="title" onChange={this.imageChange.bind(this)}/>
+      </div>
+      <button type="submit" className="btn btn-outline-dark" onClick={this.onSave.bind(this)}>Save</button>
     </div>
   }
 }

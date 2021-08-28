@@ -1,5 +1,6 @@
 import React from 'react';
 import './Registration.scss';
+import {errorHandler} from "../utils/errorHandler";
 
 
 class Registration extends React.Component {
@@ -61,7 +62,7 @@ class Registration extends React.Component {
         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
         <input type="password" value={this.state.password} onChange={this.passwordChange.bind(this)} className="form-control" id="exampleInputPassword1"/>
       </div>
-      <button type="submit" className="btn btn-primary" onClick={this.registration.bind(this)}>Sing up</button>
+      <button type="submit" className="btn btn-outline-dark" onClick={this.registration.bind(this)}>Sing up</button>
     </div>
   };
 }

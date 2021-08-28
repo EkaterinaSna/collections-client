@@ -16,11 +16,42 @@
     flex-direction: row-reverse;
     padding-bottom: 10px;
     color: #615b5b;
-
   }
 
   .nav-link {
     color: #615b5b;
+  }
+
+  a {
+    text-decoration: none;
+    color: #77a9d9;
+  }
+
+  h {
+    font-size: small;
+  }
+
+  .card-body {
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .text {
+    font-weight: lighter;
+    font-size: smaller;
+  }
+
+  .card-text {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 

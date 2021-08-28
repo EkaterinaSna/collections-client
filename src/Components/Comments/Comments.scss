@@ -1,0 +1,43 @@
+.comments {
+  padding-top: 10px;
+
+  .input-group {
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .form-control {
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-outline-danger {
+    padding: 2px;
+  }
+
+  .comments-list {
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 15px;
+    padding: 5px;
+    background: white;
+  }
+
+  .comment-header {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .message {
+      flex: auto;
+      font-weight: 600;
+    }
+  }
+
+  .btn-outline-danger {
+    border: none;
+  }
+
+  .btn-outline-secondary {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: black;
+  }
+}

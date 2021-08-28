@@ -3,7 +3,6 @@ import './Login.scss';
 import {errorHandler} from "../utils/errorHandler";
 
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +13,7 @@ class Login extends React.Component {
     }
   }
 
-  login () {
+  login() {
     fetch('http://localhost:8000/users/login', {
       method: 'POST',
       headers: {
@@ -25,11 +24,11 @@ class Login extends React.Component {
       .then(response => errorHandler(response))
       .then(response => response.json())
       .then((response) => {
-        localStorage.setItem("user", JSON.stringify (response))
-        this.props.history.push(`/`)
+        localStorage.setItem("user", JSON.stringify(response))
+        window.open('/', '_self')
       })
       .catch(() => {
-        this.setState({ ...this.state, hasError: true})
+        this.setState({...this.state, hasError: true})
       });
 
   };
@@ -59,10 +58,10 @@ class Login extends React.Component {
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
         <input type="password" className="form-control" id="exampleInputPassword1" value={this.state.password}
-               onChange={this.passwordChange.bind(this)} />
+               onChange={this.passwordChange.bind(this)}/>
       </div>
       {this.state.hasError && <div className="alert alert-danger" role="alert">Your email or password incorrect</div>}
-      <button type="submit" className="btn btn-primary" onClick={this.login.bind(this)}>Login</button>
+      <button type="submit" className="btn btn-outline-dark" onClick={this.login.bind(this)}>Login</button>
     </div>
   };
 }
